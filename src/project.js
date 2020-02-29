@@ -2804,6 +2804,7 @@ require = function t(e, n, i) {
                     version: null,
                     msg: "数据请求中..."
                 }), this.lblNotice.string = cc.yqs.userMgr.notice.msg, console.log("-----------------" + cc.yqs.userMgr.headimg + "---------------------"), this.refreshInfo(), this.refreshNotice(), this.refreshGemsTip(), cc.yqs.audioMgr.playBGM("hall-bg.mp3")) : cc.director.loadScene("loading")
+                this.EnterGame(1);
             },
             btnBack: function () {
                 var t = cc.find("Canvas/bangdingshouji"),
@@ -2852,7 +2853,7 @@ require = function t(e, n, i) {
                 };
                 cc.yqs.http.sendRequest("/get_message", t, function (t) {
                     0 !== t.errcode ? console.log(t.errmsg) : (cc.yqs.userMgr.notice.version = t.version, cc.yqs.userMgr.notice.msg = t.msg, this.lblNotice.string = t.msg)
-                    this.EnterGame(1);
+                   // 
                 }.bind(this))
             },
             initButtonHandler: function (t) {
