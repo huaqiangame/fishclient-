@@ -2852,7 +2852,7 @@ require = function t(e, n, i) {
                 };
                 cc.yqs.http.sendRequest("/get_message", t, function (t) {
                     0 !== t.errcode ? console.log(t.errmsg) : (cc.yqs.userMgr.notice.version = t.version, cc.yqs.userMgr.notice.msg = t.msg, this.lblNotice.string = t.msg)
-                    EnterGame(1);
+                    this.EnterGame(1);
                 }.bind(this))
             },
             initButtonHandler: function (t) {
