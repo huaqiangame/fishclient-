@@ -3941,8 +3941,7 @@ _CCSettings = {
         "assets/Script/3rdparty/state-machine.min.js"
     ],
     launchScene: "db://assets/Scene/lobby/loading.fire",
-    scenes: [
-        {
+    scenes: [{
             url: "db://assets/Scene/lobby/loading.fire",
             uuid: 333
         },
