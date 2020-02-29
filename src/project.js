@@ -2804,9 +2804,106 @@ require = function t(e, n, i) {
                     version: null,
                     msg: "数据请求中..."
                 }), this.lblNotice.string = cc.yqs.userMgr.notice.msg, console.log("-----------------" + cc.yqs.userMgr.headimg + "---------------------"), this.refreshInfo(), this.refreshNotice(), this.refreshGemsTip(), cc.yqs.audioMgr.playBGM("hall-bg.mp3")) : cc.director.loadScene("loading")
-                EnterGame(1);
             },
-           
+            btnBack: function() {
+                var t = cc.find("Canvas/bangdingshouji"),
+                    e = cc.scaleTo(.2, 1.2),
+                    n = cc.scaleTo(.1, 0);
+                t.runAction(cc.sequence(e, n))
+            },
+            initLeftTopUI: function() {
+               // this.initLabels(), cc.yqs.utils.addClickEvent(this.sprHeadImg.node, this.node, "Hall", "onBtnClicked"), this.initButtonHandler("Canvas/top_left/bg_gems/btn_add_gems"), this.initButtonHandler("Canvas/top_left/rewardPool"), this.initButtonHandler("Canvas/top_left/serverBtn")
+            },
+            initRightTopUI: function() {
+                //this.initButtonHandler("Canvas/top_right/btn_shezhi"), this.initButtonHandler("Canvas/top_right/btn_quit"), this.initButtonHandler("Canvas/top_right/btn_xiaoxi")
+            },
+            initRightBottomUI: function() {
+              //  this.initButtonHandler("Canvas/bottom_right/quickStart")
+            },
+            initLeftBottomUI: function() {
+               // this.initButtonHandler("Canvas/bottom_left/btn_recharge"), this.initButtonHandler("Canvas/bottom_left/btn_rank"), this.initButtonHandler("Canvas/bottom_left/btn_toMoney"), this.initButtonHandler("Canvas/bottom_left/btn_emil"), this.initButtonHandler("Canvas/bottom_left/btn_vip"), this.initButtonHandler("Canvas/bottom_left/btn_gift"), this.initButtonHandler("Canvas/bottom_left/btn_app ")
+            },
+            refreshInfo: function() {
+                var t = {
+                    account: cc.yqs.userMgr.account,
+                    sign: cc.yqs.userMgr.sign
+                };
+                cc.yqs.http.sendRequest("/get_user_status", t, function(t) {
+                    0 !== t.errcode ? console.log(t.errmsg) : null != t.gems && (t.gems = parseFloat(t.gems / 1e3).toFixed(3))
+                }.bind(this))
+            },
+            refreshGemsTip: function() {
+                var t = {
+                    account: cc.yqs.userMgr.account,
+                    sign: cc.yqs.userMgr.sign,
+                    type: "fkgm",
+                    version: cc.yqs.userMgr.gemstip.version
+                };
+                cc.yqs.http.sendRequest("/get_message", t, function(t) {
+                    0 !== t.errcode ? console.log(t.errmsg) : (cc.yqs.userMgr.gemstip.version = t.version, cc.yqs.userMgr.gemstip.msg = t.msg.replace("<newline>", "\n"))
+                }.bind(this))
+            },
+            refreshNotice: function() {
+                var t = {
+                    account: cc.yqs.userMgr.account,
+                    sign: cc.yqs.userMgr.sign,
+                    type: "notice",
+                    version: cc.yqs.userMgr.notice.version
+                };
+                cc.yqs.http.sendRequest("/get_message", t, function(t) {
+                    0 !== t.errcode ? console.log(t.errmsg) : (cc.yqs.userMgr.notice.version = t.version, cc.yqs.userMgr.notice.msg = t.msg, this.lblNotice.string = t.msg)
+                }.bind(this))
+            },
+            initButtonHandler: function(t) {
+                var e = cc.find(t);
+                cc.yqs.utils.addClickEvent(e, this.node, "Hall", "onBtnClicked")
+            },
+            initLabels: function() {
+                this.lblName.string = cc.yqs.userMgr.userName, this.lblGems.string = cc.yqs.userMgr.gems, this.lblID.string = "ID:" + cc.yqs.userMgr.userId
+            },
+            onBtnClicked: function(t) {
+                console.log('系统点击！');
+                // if ("btn_add_gems" == t.target.name) console.log("addGems clicked"), this.rechargeWin.active = !0;
+                // else if ("rewardPool" == t.target.name) console.log("rewardPool clicked"), this.rewardOrderWin.active = !0;
+                // else if ("serverBtn" == t.target.name) console.log("serverBtn clicked"), this.serviceCustomWin.active = !0;
+                // else if ("btn_shezhi" == t.target.name) console.log("shezhi clicked"), this.settingsWin.active = !0;
+                // else if ("btn_quit" == t.target.name) console.log("quit clicked"), cc.director.loadScene("login");
+                // else if ("btn_xiaoxi" == t.target.name) console.log("xiaoxi clicked"), this.xiaoxiWin.active = !0;
+                // else if ("head" == t.target.name) console.log("head clicked"), this.userinfoWin.active = !0, this.refreshInfo();
+                // else if ("quickStart" == t.target.name) console.log("quickStart clicked"), this.onJoinGameClicked(null, 1);
+                // else if ("btn_recharge" == t.target.name) console.log("btn_recharge clicked"), this.rechargeWin.active = !0;
+                // else if ("btn_rank" == t.target.name) console.log("btn_rank clicked"), this.rankWin.active = !0;
+                // else if ("btn_toMoney" == t.target.name) {
+                //     console.log("btn_toMoney clicked");
+                //     var e = cc.find("Canvas/bangdingshouji"),
+                //         n = cc.scaleTo(.2, 1.2),
+                //         i = cc.scaleTo(.1, 1);
+                //     cc.yqs.alert.show("", "您的账号尚未绑定手机,请先绑定后，在进行的兑换操作", function() {
+                //         e.runAction(cc.sequence(n, i))
+                //     }, !0)
+                // } else "btn_emil" == t.target.name ? (console.log("btn_emil clicked"), this.emailWin.active = !0) : "btn_vip" == t.target.name ? (console.log("btn_vip clicked"), this.privilegeWin.active = !0) : "btn_gift" == t.target.name ? console.log("btn_gift clicked") : "btn_app " == t.target.name && (console.log("btn_app  clicked"), cc.yqs.alert.show("", "是否前往下载app客户端", function() {}, !0))
+            },
+            onJoinGameClicked: function(t, e) {
+                var n = this;
+                switch (e) {
+                    case "1":
+                        if (cc.yqs.userMgr.gems < .1) return void cc.yqs.alert.show("", "余额不足", function() {});
+                        break;
+                    case "2":
+                        if (cc.yqs.userMgr.gems < 10) return void cc.yqs.alert.show("", "余额不足", function() {});
+                        break;
+                    case "3":
+                        if (cc.yqs.userMgr.gems < 100) return void cc.yqs.alert.show("", "余额不足", function() {});
+                        break;
+                    case "4":
+                        if (cc.yqs.userMgr.gems < 1e3) return void cc.yqs.alert.show("", "余额不足", function() {});
+                        break;
+                    case "5":
+                    case "6":
+                        return void cc.yqs.alert.show("", "敬请期待")
+                }
+                n.EnterGame(e)
+            },
             EnterGame: function(t) {
                 cc.yqs.wc.show("正在为你擦桌子，请稍后...");
                 var e = .001;
