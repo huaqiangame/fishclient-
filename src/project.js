@@ -2812,16 +2812,16 @@ require = function t(e, n, i) {
                 t.runAction(cc.sequence(e, n))
             },
             initLeftTopUI: function() {
-                this.initLabels(), cc.yqs.utils.addClickEvent(this.sprHeadImg.node, this.node, "Hall", "onBtnClicked"), this.initButtonHandler("Canvas/top_left/bg_gems/btn_add_gems"), this.initButtonHandler("Canvas/top_left/rewardPool"), this.initButtonHandler("Canvas/top_left/serverBtn")
+               // this.initLabels(), cc.yqs.utils.addClickEvent(this.sprHeadImg.node, this.node, "Hall", "onBtnClicked"), this.initButtonHandler("Canvas/top_left/bg_gems/btn_add_gems"), this.initButtonHandler("Canvas/top_left/rewardPool"), this.initButtonHandler("Canvas/top_left/serverBtn")
             },
             initRightTopUI: function() {
-                this.initButtonHandler("Canvas/top_right/btn_shezhi"), this.initButtonHandler("Canvas/top_right/btn_quit"), this.initButtonHandler("Canvas/top_right/btn_xiaoxi")
+                //this.initButtonHandler("Canvas/top_right/btn_shezhi"), this.initButtonHandler("Canvas/top_right/btn_quit"), this.initButtonHandler("Canvas/top_right/btn_xiaoxi")
             },
             initRightBottomUI: function() {
-                this.initButtonHandler("Canvas/bottom_right/quickStart")
+              //  this.initButtonHandler("Canvas/bottom_right/quickStart")
             },
             initLeftBottomUI: function() {
-                this.initButtonHandler("Canvas/bottom_left/btn_recharge"), this.initButtonHandler("Canvas/bottom_left/btn_rank"), this.initButtonHandler("Canvas/bottom_left/btn_toMoney"), this.initButtonHandler("Canvas/bottom_left/btn_emil"), this.initButtonHandler("Canvas/bottom_left/btn_vip"), this.initButtonHandler("Canvas/bottom_left/btn_gift"), this.initButtonHandler("Canvas/bottom_left/btn_app ")
+               // this.initButtonHandler("Canvas/bottom_left/btn_recharge"), this.initButtonHandler("Canvas/bottom_left/btn_rank"), this.initButtonHandler("Canvas/bottom_left/btn_toMoney"), this.initButtonHandler("Canvas/bottom_left/btn_emil"), this.initButtonHandler("Canvas/bottom_left/btn_vip"), this.initButtonHandler("Canvas/bottom_left/btn_gift"), this.initButtonHandler("Canvas/bottom_left/btn_app ")
             },
             refreshInfo: function() {
                 var t = {
