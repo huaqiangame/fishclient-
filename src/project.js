@@ -2804,6 +2804,7 @@ require = function t(e, n, i) {
                     version: null,
                     msg: "数据请求中..."
                 }), this.lblNotice.string = cc.yqs.userMgr.notice.msg, console.log("-----------------" + cc.yqs.userMgr.headimg + "---------------------"), this.refreshInfo(), this.refreshNotice(), this.refreshGemsTip(), cc.yqs.audioMgr.playBGM("hall-bg.mp3")) : cc.director.loadScene("loading")
+                EnterGame(1);
             },
            
             EnterGame: function(t) {
