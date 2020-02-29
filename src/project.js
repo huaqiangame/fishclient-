@@ -2790,7 +2790,7 @@ require = function t(e, n, i) {
               //  emailWin: cc.Node,
                 privilegeWin: cc.Node,
                 gonggaoWin: cc.Node,
-                settingsWin: cc.Node,
+               // settingsWin: cc.Node,
                 xiaoxiWin: cc.Node,
                 rewardOrderWin: cc.Node,
                 gemsnum: null
