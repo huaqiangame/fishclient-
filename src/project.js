@@ -2784,10 +2784,10 @@ require = function t(e, n, i) {
                 lblNotice: cc.Label,
                 sprHeadImg: cc.Sprite,
                 userinfoWin: cc.Node,
-                rechargeWin: cc.Node,
+               // rechargeWin: cc.Node,
                 serviceCustomWin: cc.Node,
                 rankWin: cc.Node,
-                emailWin: cc.Node,
+              //  emailWin: cc.Node,
                 privilegeWin: cc.Node,
                 gonggaoWin: cc.Node,
                 settingsWin: cc.Node,
@@ -2862,25 +2862,26 @@ require = function t(e, n, i) {
                 this.lblName.string = cc.yqs.userMgr.userName, this.lblGems.string = cc.yqs.userMgr.gems, this.lblID.string = "ID:" + cc.yqs.userMgr.userId
             },
             onBtnClicked: function(t) {
-                if ("btn_add_gems" == t.target.name) console.log("addGems clicked"), this.rechargeWin.active = !0;
-                else if ("rewardPool" == t.target.name) console.log("rewardPool clicked"), this.rewardOrderWin.active = !0;
-                else if ("serverBtn" == t.target.name) console.log("serverBtn clicked"), this.serviceCustomWin.active = !0;
-                else if ("btn_shezhi" == t.target.name) console.log("shezhi clicked"), this.settingsWin.active = !0;
-                else if ("btn_quit" == t.target.name) console.log("quit clicked"), cc.director.loadScene("login");
-                else if ("btn_xiaoxi" == t.target.name) console.log("xiaoxi clicked"), this.xiaoxiWin.active = !0;
-                else if ("head" == t.target.name) console.log("head clicked"), this.userinfoWin.active = !0, this.refreshInfo();
-                else if ("quickStart" == t.target.name) console.log("quickStart clicked"), this.onJoinGameClicked(null, 1);
-                else if ("btn_recharge" == t.target.name) console.log("btn_recharge clicked"), this.rechargeWin.active = !0;
-                else if ("btn_rank" == t.target.name) console.log("btn_rank clicked"), this.rankWin.active = !0;
-                else if ("btn_toMoney" == t.target.name) {
-                    console.log("btn_toMoney clicked");
-                    var e = cc.find("Canvas/bangdingshouji"),
-                        n = cc.scaleTo(.2, 1.2),
-                        i = cc.scaleTo(.1, 1);
-                    cc.yqs.alert.show("", "您的账号尚未绑定手机,请先绑定后，在进行的兑换操作", function() {
-                        e.runAction(cc.sequence(n, i))
-                    }, !0)
-                } else "btn_emil" == t.target.name ? (console.log("btn_emil clicked"), this.emailWin.active = !0) : "btn_vip" == t.target.name ? (console.log("btn_vip clicked"), this.privilegeWin.active = !0) : "btn_gift" == t.target.name ? console.log("btn_gift clicked") : "btn_app " == t.target.name && (console.log("btn_app  clicked"), cc.yqs.alert.show("", "是否前往下载app客户端", function() {}, !0))
+                console.log('系统点击！');
+                // if ("btn_add_gems" == t.target.name) console.log("addGems clicked"), this.rechargeWin.active = !0;
+                // else if ("rewardPool" == t.target.name) console.log("rewardPool clicked"), this.rewardOrderWin.active = !0;
+                // else if ("serverBtn" == t.target.name) console.log("serverBtn clicked"), this.serviceCustomWin.active = !0;
+                // else if ("btn_shezhi" == t.target.name) console.log("shezhi clicked"), this.settingsWin.active = !0;
+                // else if ("btn_quit" == t.target.name) console.log("quit clicked"), cc.director.loadScene("login");
+                // else if ("btn_xiaoxi" == t.target.name) console.log("xiaoxi clicked"), this.xiaoxiWin.active = !0;
+                // else if ("head" == t.target.name) console.log("head clicked"), this.userinfoWin.active = !0, this.refreshInfo();
+                // else if ("quickStart" == t.target.name) console.log("quickStart clicked"), this.onJoinGameClicked(null, 1);
+                // else if ("btn_recharge" == t.target.name) console.log("btn_recharge clicked"), this.rechargeWin.active = !0;
+                // else if ("btn_rank" == t.target.name) console.log("btn_rank clicked"), this.rankWin.active = !0;
+                // else if ("btn_toMoney" == t.target.name) {
+                //     console.log("btn_toMoney clicked");
+                //     var e = cc.find("Canvas/bangdingshouji"),
+                //         n = cc.scaleTo(.2, 1.2),
+                //         i = cc.scaleTo(.1, 1);
+                //     cc.yqs.alert.show("", "您的账号尚未绑定手机,请先绑定后，在进行的兑换操作", function() {
+                //         e.runAction(cc.sequence(n, i))
+                //     }, !0)
+                // } else "btn_emil" == t.target.name ? (console.log("btn_emil clicked"), this.emailWin.active = !0) : "btn_vip" == t.target.name ? (console.log("btn_vip clicked"), this.privilegeWin.active = !0) : "btn_gift" == t.target.name ? console.log("btn_gift clicked") : "btn_app " == t.target.name && (console.log("btn_app  clicked"), cc.yqs.alert.show("", "是否前往下载app客户端", function() {}, !0))
             },
             onJoinGameClicked: function(t, e) {
                 var n = this;
